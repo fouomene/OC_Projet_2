@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.Collections;
 import java.util.HashMap;
 
 public class AnalyticsCounter{
@@ -37,19 +38,21 @@ public class AnalyticsCounter{
 			// on lit la ligne suivante
 			line = reader.readLine();
 		}
-
+		
 		FileWriter writer = new FileWriter ("result.txt");
-		writer.write(String.valueOf(symptoms_dictionary));
+		writer.write(String.valueOf(Collections.unmodifiableMap(symptoms_dictionary)));
+
 		writer.close();
-
-		// TODO fermer le reader
-		// TODO trier les clés
-		// TODO créer un fichier de sortie
-
-		// test
-		// test
-		// test
 		reader.close();
+		// TODO fermer le reader =>ok
+		// TODO trier les clés
+		// TODO créer un fichier de sortie =>ok
+		// TODO faire un retour à la ligne
+
+		// test
+		// test
+		// test
+
 
 
 
