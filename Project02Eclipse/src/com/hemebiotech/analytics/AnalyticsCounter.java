@@ -40,14 +40,13 @@ public class AnalyticsCounter{
 		FileWriter writer = new FileWriter ("results.out");
 
 		// écriture des résultats dans le fichier de sortie
-		writer.write(String.valueOf((symptoms_dictionary)));
+		for (String key : symptoms_dictionary.keySet() ) {
+			writer.write(key +" = "+symptoms_dictionary.get(key)+System.lineSeparator());
+		}
 
 		// fermeture du reader et du writer
 		writer.close();
 		reader.close();
-
-		// TODO trier les clés (en cours => QUE CHOISIR???)
-		// TODO faire un retour à la ligne dans le fichier de sortie
 
 		// TODO faire la javadoc
 		// TODO faire une présentation du travail
