@@ -3,27 +3,22 @@ package com.hemebiotech.analytics;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.util.Collections;
 import java.util.HashMap;
+
 
 public class AnalyticsCounter{
 
 	public static void main(String[] args) throws Exception{
 
-
-
-		//File file = new File("symptoms.txt");
 		BufferedReader reader = new BufferedReader(new FileReader("symptoms.txt"));
 		String line = reader.readLine();
-		// Collections.sort(line); faire un sort sur un treemap
-	
 
 		HashMap<String,Integer> symptoms_dictionary = new HashMap<>();
 
 
 		// tant que le fichier contient une clé
 		while (line != null) {
-			System.out.println(line);
+			//System.out.println(line);
 			if(symptoms_dictionary.containsKey(line)){
 				// si la clé existe dans le dictionnaire
 				// on récupère la valeur existante
@@ -42,23 +37,23 @@ public class AnalyticsCounter{
 			line = reader.readLine();
 		}
 
-		FileWriter writer = new FileWriter ("result.txt");
+		// création d'un fichier de sortie
+		FileWriter writer = new FileWriter ("results.out");
 
-		writer.write(String.valueOf(Collections.unmodifiableMap(symptoms_dictionary)));
+		// écriture des résultats dans le fichier de sortie
+		writer.write(String.valueOf((symptoms_dictionary)));
 
+		// fermeture du reader et du writer
 		writer.close();
 		reader.close();
 
-		// essayer de faire un tri avec le treemap (voir stackoverflow)
 
-		// TODO fermer le reader =>ok
-		// TODO trier les clés
-		// TODO créer un fichier de sortie =>ok
-		// TODO faire un retour à la ligne
 
-		// test
-		// test
-		// test
+
+		// TODO trier les clés (en cours avec une classe)
+		// TODO faire un retour à la ligne dans le fichier de sortie
+		// TODO faire la javadoc
+		// TODO faire une présentation du travail
 
 
 
