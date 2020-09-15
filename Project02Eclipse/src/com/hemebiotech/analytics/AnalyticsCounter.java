@@ -1,7 +1,6 @@
 package com.hemebiotech.analytics;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.Collections;
@@ -12,10 +11,14 @@ public class AnalyticsCounter{
 	public static void main(String[] args) throws Exception{
 
 
-		HashMap<String,Integer> symptoms_dictionary = new HashMap<>();
-		File file = new File("symptoms.txt");
+
+		//File file = new File("symptoms.txt");
 		BufferedReader reader = new BufferedReader(new FileReader("symptoms.txt"));
 		String line = reader.readLine();
+		// Collections.sort(line); faire un sort sur un treemap
+	
+
+		HashMap<String,Integer> symptoms_dictionary = new HashMap<>();
 
 
 		// tant que le fichier contient une clé
@@ -38,12 +41,16 @@ public class AnalyticsCounter{
 			// on lit la ligne suivante
 			line = reader.readLine();
 		}
-		
+
 		FileWriter writer = new FileWriter ("result.txt");
+
 		writer.write(String.valueOf(Collections.unmodifiableMap(symptoms_dictionary)));
 
 		writer.close();
 		reader.close();
+
+		// essayer de faire un tri avec le treemap (voir stackoverflow)
+
 		// TODO fermer le reader =>ok
 		// TODO trier les clés
 		// TODO créer un fichier de sortie =>ok
