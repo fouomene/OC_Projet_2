@@ -3,7 +3,7 @@ package com.hemebiotech.analytics;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.util.HashMap;
+import java.util.TreeMap;
 
 
 public class AnalyticsCounter{
@@ -13,8 +13,8 @@ public class AnalyticsCounter{
 		BufferedReader reader = new BufferedReader(new FileReader("symptoms.txt"));
 		String line = reader.readLine();
 
-		HashMap<String,Integer> symptoms_dictionary = new HashMap<>();
-
+		//HashMap<String,Integer> symptoms_dictionary = new HashMap<>(); TODO: QUE CHOISIR??? car hashmap est thread safe!
+		TreeMap<String,Integer> symptoms_dictionary = new TreeMap<>();
 
 		// tant que le fichier contient une clé
 		while (line != null) {
@@ -47,30 +47,12 @@ public class AnalyticsCounter{
 		writer.close();
 		reader.close();
 
-
-
-
-		// TODO trier les clés (en cours avec une classe)
+		// TODO trier les clés (en cours QUE CHOISIR???)
 		// TODO faire un retour à la ligne dans le fichier de sortie
+
 		// TODO faire la javadoc
 		// TODO faire une présentation du travail
 
-
-
-
-
-
 	}
-
 }
 
-
-
-//
-//		FileWriter writer = new FileWriter ("result.out");
-//		writer.write("headache: " + headacheCount + "\n");
-//		writer.write("rash: " + rashCount + "\n");
-//		writer.write("dialated pupils: " + pupilCount + "\n");
-//		writer.close();
-//	}
-//}
