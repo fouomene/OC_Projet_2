@@ -13,7 +13,7 @@ public class AnalyticsCounter{
 		BufferedReader reader = new BufferedReader(new FileReader("symptoms.txt"));
 		String line = reader.readLine();
 
-		//HashMap<String,Integer> symptoms_dictionary = new HashMap<>(); TODO: QUE CHOISIR??? car hashmap n'est pas thread safe!
+		//HashMap<String,Integer> symptoms_dictionary = new HashMap<>(); TODO: QUE CHOISIR??? Lequel est le mieux?
 		TreeMap<String,Integer> symptoms_dictionary = new TreeMap<>();
 
 		// tant que le fichier contient une clé
@@ -47,7 +47,7 @@ public class AnalyticsCounter{
 		writer.close();
 		reader.close();
 
-		// TODO trier les clés (en cours QUE CHOISIR???)
+		// TODO trier les clés (en cours => QUE CHOISIR???)
 		// TODO faire un retour à la ligne dans le fichier de sortie
 
 		// TODO faire la javadoc
