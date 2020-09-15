@@ -5,7 +5,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.TreeMap;
 
-
+/**
+ * read a text file, create a TreeMap, and finally write in another text file the results.
+ */
 public class AnalyticsCounter{
 
 	public static void main(String[] args) throws Exception{
