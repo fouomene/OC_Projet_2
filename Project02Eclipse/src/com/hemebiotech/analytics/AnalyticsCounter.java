@@ -13,7 +13,7 @@ public class AnalyticsCounter{
 		BufferedReader reader = new BufferedReader(new FileReader("symptoms.txt"));
 		String line = reader.readLine();
 
-		//HashMap<String,Integer> symptoms_dictionary = new HashMap<>(); TODO: QUE CHOISIR??? car hashmap est thread safe!
+		//HashMap<String,Integer> symptoms_dictionary = new HashMap<>(); TODO: QUE CHOISIR??? car hashmap n'est pas thread safe!
 		TreeMap<String,Integer> symptoms_dictionary = new TreeMap<>();
 
 		// tant que le fichier contient une clé
