@@ -13,7 +13,6 @@ public class AnalyticsCounter{
 		BufferedReader reader = new BufferedReader(new FileReader("symptoms.txt"));
 		String line = reader.readLine();
 
-		//HashMap<String,Integer> symptoms_dictionary = new HashMap<>(); TODO: QUE CHOISIR??? Lequel est le mieux?
 		TreeMap<String,Integer> symptoms_dictionary = new TreeMap<>();
 
 		// tant que le fichier contient une clé
