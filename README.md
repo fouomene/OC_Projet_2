@@ -9,8 +9,7 @@ J'ai commencé par créer le dictionnaire puis j'ai créer le "Reader" et ensuit
 
 il me reste les opérations suivantes à effectuer:
 
-   		// TODO trier les clés (A voir si ok en TreeMap???)
-		// TODO faire un retour à la ligne dans le fichier de sortie
+   	
 		
 		// TODO faire la javadoc
-		// TODO faire une présentation du travail
+		
