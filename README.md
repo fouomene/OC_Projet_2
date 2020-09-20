@@ -7,9 +7,5 @@ Le dictionnaire semble être le meilleur moyen d'y arriver. En effet, les collec
 
 J'ai commencé par créer le dictionnaire puis j'ai créer le "Reader" et ensuite créer le compteur d'entrées (on parle de clés dans le cas d'un dictionnaire numérique)
 
-il me reste les opérations suivantes à effectuer:
-
-   	
-		
-		// TODO faire la javadoc
+Projet terminé.
 		
