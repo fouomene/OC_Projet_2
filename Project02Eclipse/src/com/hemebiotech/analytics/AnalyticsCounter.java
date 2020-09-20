@@ -3,56 +3,88 @@ package com.hemebiotech.analytics;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.TreeMap;
 
 /**
- * read a text file, create a TreeMap, and finally write in another text file the results.
+ * read a text file "symptoms.txt", create a TreeMap, with lines
+ * considerring as keys and new occurences from existing lines
+ * are considerring as a +1 (value's incrementation) and finally
+ * write this dictionnary in another text file "results.out".
  */
+
 public class AnalyticsCounter{
 
 	public static void main(String[] args) throws Exception{
+		TreeMap<String,Integer> symptoms_dictionary = new TreeMap<>();
+		readSymptoms(symptoms_dictionary, "symptoms.txt");
+		writeResult(symptoms_dictionary, "results.out");
+	}
 
-		BufferedReader reader = new BufferedReader(new FileReader("symptoms.txt"));
+	/**
+	 *
+	 * @param symptoms_dictionary
+	 * @param fileName
+	 * @throws IOException
+	 *
+	 *
+	 *this function read the symtoms in the text file
+	 *and create (and close) the reader by the way
+	 * Also, create the counter of each symptoms
+	 */
+
+	private static void readSymptoms(TreeMap<String, Integer> symptoms_dictionary, String fileName) throws IOException {
+		BufferedReader reader = new BufferedReader(new FileReader(fileName));
 		String line = reader.readLine();
 
-		TreeMap<String,Integer> symptoms_dictionary = new TreeMap<>();
-
-		// tant que le fichier contient une clé
+		// while the text file contains a line
 		while (line != null) {
-			//System.out.println(line);
+			//System.out.println(line); // print the line for verification
 			if(symptoms_dictionary.containsKey(line)){
-				// si la clé existe dans le dictionnaire
-				// on récupère la valeur existante
+				// if key exist in the dictionnary
+				// we keep the existant value
 				Integer count = symptoms_dictionary.get(line);
-				// on incrémente la valeur
+				// value's incrementation
 				count++;
-				// on remplace la valeur
+				// switch de value
 				symptoms_dictionary.replace(line,count);
+
 			}else {
-				// si la clé n'existe pas dans le dictionnaire
-				// la valeur est par défaut à 1
+				// if key doesn't exist in the dictionnary
+				// the default value equal one
 				symptoms_dictionary.put(line,1);
 			}
-
-			// on lit la ligne suivante
+			// read the next line
 			line = reader.readLine();
 		}
+		// reader's close
+		reader.close();
+	}
 
-		// création d'un fichier de sortie
-		FileWriter writer = new FileWriter ("results.out");
+	/**
+	 *
+	 * @param symptoms_dictionary
+	 * @param fileName
+	 * @throws IOException
+	 *
+	 * This function create (and close) the writer
+	 * and present the dictionnary in separated line.
+	 *
+	 */
 
-		// écriture des résultats dans le fichier de sortie
+
+	private static void writeResult(TreeMap<String, Integer> symptoms_dictionary, String fileName) throws IOException {
+		// create an output file
+		FileWriter writer = new FileWriter (fileName);
+
+		// write the result in the output file
 		for (String key : symptoms_dictionary.keySet() ) {
-			writer.write(key +" = "+symptoms_dictionary.get(key)+System.lineSeparator());
+			writer.write("symptom from file : "+key +" = "+
+					symptoms_dictionary.get(key)+System.lineSeparator());
 		}
 
-		// fermeture du reader et du writer
+		//redactor's close
 		writer.close();
-		reader.close();
-
-		// TODO faire la javadoc
-		// TODO faire une présentation du travail
-
 	}
 }
 
