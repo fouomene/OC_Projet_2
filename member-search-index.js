@@ -1,1 +1,0 @@
-memberSearchIndex = [{"p":"com.hemebiotech.analytics","c":"AnalyticsCounter","l":"AnalyticsCounter()","url":"%3Cinit%3E()"},{"p":"com.hemebiotech.analytics","c":"AnalyticsCounter","l":"main(String[])","url":"main(java.lang.String[])"}]
